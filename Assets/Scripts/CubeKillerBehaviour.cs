@@ -16,10 +16,21 @@ public class CubeKillerBehaviour : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider col)
+void OnTriggerEnter(Collider col)
 {
-	Debug.Log("Trigger!");
-	GameObject colliderGo = col.gameObject;
-	Destroy(colliderGo);
+    Debug.Log("Trigger!");
+
+    // Vérifier si le collider a un tag "Cube"
+    if (col.CompareTag("Cube"))
+    {
+        GameObject colliderGo = col.gameObject;
+        Destroy(colliderGo);
+    }
+    else
+    {
+        Debug.Log("Not a cube!");
+    }
 }
+
+
 }
